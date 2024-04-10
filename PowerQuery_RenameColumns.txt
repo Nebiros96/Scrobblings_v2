@@ -1,0 +1,1 @@
+= Table.RenameColumns(#"Tipo cambiado",{{"Column1", "Artist"}, {"Column2", "Album"}, {"Column3", "Song"}, {"Column4", "Fecha"}})
