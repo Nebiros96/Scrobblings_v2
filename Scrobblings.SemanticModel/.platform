@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Scrobblings"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "b2b4a9a8-b9c1-428d-92e4-b057b14903d0"
+  }
+}
