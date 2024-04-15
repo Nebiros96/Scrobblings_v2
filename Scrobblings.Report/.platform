@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Scrobblings"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "dc84c856-75de-453d-9766-c4bdefdb16af"
+  }
+}

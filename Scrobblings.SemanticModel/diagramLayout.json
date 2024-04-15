@@ -1,0 +1,119 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 78,
+            "y": 46
+          },
+          "nodeIndex": "Scrobblings_fix",
+          "size": {
+            "height": 1000,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 470,
+            "y": 31
+          },
+          "nodeIndex": "Artists by Date",
+          "size": {
+            "height": 357,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 584.40000000000009,
+            "y": 629
+          },
+          "nodeIndex": "Songs by Day of Week",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 947.2,
+            "y": 0
+          },
+          "nodeIndex": "A_Aux_dates",
+          "size": {
+            "height": 291,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 600.59999999999991,
+            "y": 837
+          },
+          "nodeIndex": "Top 100 artistas",
+          "size": {
+            "height": 242,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 932.59999999999991,
+            "y": 393
+          },
+          "nodeIndex": "Artists by Scrobblings",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1311,
+            "y": 0
+          },
+          "nodeIndex": "ByDay",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 1517,
+            "y": 463.5
+          },
+          "nodeIndex": "_comparison_scrobblings",
+          "nodeLineageTag": "50d2dc8b-8fcc-4cf5-b162-1e9318d8e574",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

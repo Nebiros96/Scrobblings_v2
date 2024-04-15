@@ -1,0 +1,15 @@
+Index Format = 
+'Artists by Scrobblings'[Index]>=1 && 'Artists by Scrobblings'[Index]<=10, "Top 10",
+'Artists by Scrobblings'[Index]>=11 && 'Artists by Scrobblings'[Index]<=25, "Top 25",
+'Artists by Scrobblings'[Index]>=26 && 'Artists by Scrobblings'[Index]<=50, "Top 50",
+'Artists by Scrobblings'[Index]>=51 && 'Artists by Scrobblings'[Index]<=100, "Top 100",
+'Artists by Scrobblings'[Index]>=101 && 'Artists by Scrobblings'[Index]<=200, "Top 200",
+'Artists by Scrobblings'[Index]>=201 && 'Artists by Scrobblings'[Index]<=300, "Top 300",
+'Artists by Scrobblings'[Index]>=301 && 'Artists by Scrobblings'[Index]<=400, "Top 400",
+'Artists by Scrobblings'[Index]>=401 && 'Artists by Scrobblings'[Index]<=500, "Top 500",
+'Artists by Scrobblings'[Index]>=501 && 'Artists by Scrobblings'[Index]<=600, "Top 600",
+'Artists by Scrobblings'[Index]>=601 && 'Artists by Scrobblings'[Index]<=700, "Top 700",
+'Artists by Scrobblings'[Index]>=701 && 'Artists by Scrobblings'[Index]<=800, "Top 800",
+'Artists by Scrobblings'[Index]>=801 && 'Artists by Scrobblings'[Index]<=900, "Top 900",
+'Artists by Scrobblings'[Index]>=901 && 'Artists by Scrobblings'[Index]<=1000, "Top 1000",
+'Artists by Scrobblings'[Index]>=1001 && 'Artists by Scrobblings'[Index]<=1500, "Top 1500", "Top 2000"
