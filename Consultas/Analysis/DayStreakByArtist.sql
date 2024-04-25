@@ -17,21 +17,22 @@ WITH Agrupacion AS (
 
 SELECT 
     Artist,
-    Bandera,
+    -- Bandera,
     MIN(Date_fix) AS FechaInicio,
     MAX(Date_fix) AS FechaFin,
     COUNT(*) AS CantidadDias
 FROM Bandera
+-- WHERE Artist = 'Grimes' -- Para ver todas las rachas de un artista en específico # LINEA COMENTADA para ver todo
 GROUP BY Artist, Bandera
 HAVING COUNT(*) > 1
-ORDER BY CantidadDias DESC
+ORDER BY CantidadDias DESC;
 
 -- con artista específico
 WITH Agrupacion AS (
     SELECT 
         Artist, 
         CAST(Fecha_GMT AS DATE) AS Date_fix,
-        COUNT(*) AS Scrobblings,
+        COUNT(*) AS Listens,
         LAG(CAST(Fecha_GMT AS DATE), 1) OVER(PARTITION BY Artist ORDER BY CAST(Fecha_GMT AS DATE)) AS LastDate
     FROM Scrobblings_fix
     GROUP BY Artist, CAST(Fecha_GMT AS DATE)
@@ -49,17 +50,18 @@ WITH Agrupacion AS (
         MAX(Date_fix) AS FechaFin,
         COUNT(*) AS CantidadDias
     FROM Bandera
-    WHERE Artist = 'IC3PEAK' --Artista a seleccionar
+    WHERE Artist = N'Madonna' --Artista a seleccionar
     GROUP BY Artist, Bandera
     ORDER BY CantidadDias DESC
 )
 SELECT 
     B.Artist,
     B.Date_fix AS Fecha,
-    B.Scrobblings
-FROM Bandera B
-INNER JOIN MaxDias M ON B.Artist = M.Artist AND B.Bandera = M.Bandera
-ORDER BY B.Date_fix;
+    B.Listens,
+	ROW_NUMBER() OVER(ORDER BY B.Date_fix ASC) AS DayN
+FROM Bandera AS B
+INNER JOIN MaxDias AS M ON B.Artist = M.Artist AND B.Bandera = M.Bandera
+ORDER BY B.Date_fix ASC;
 
 
 
