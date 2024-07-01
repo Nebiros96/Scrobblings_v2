@@ -55,7 +55,36 @@ CREATE TABLE Scrobblings_fix (
     [Hour] INT,
     Year_Month NVARCHAR(7),
     Year_Month_Day NVARCHAR(10),
-    [WeekDay] NVARCHAR(50)
+    [WeekDay] NVARCHAR(50),
+	[RowNum] INT
 );
 
 */
+-- TRANSACCIÓN
+BEGIN TRANSACTION;
+TRUNCATE TABLE Scrobblings_fix;
+-- Insertar datos
+INSERT INTO Scrobblings_fix (Artist, Album, Song, Fecha, [Fecha_GMT], [Year], [Quarter], [Month], [Day], [Hour], Year_Month, Year_Month_Day, [WeekDay])
+SELECT 
+    [Artist],
+    [Album],
+    [Song],
+    [Fecha], 
+	[Fecha_GMT],
+    DATEPART(YEAR, Fecha_GMT) AS [Year],
+    DATEPART(QUARTER, Fecha_GMT) AS [Quarter],
+    DATEPART(MONTH, Fecha_GMT) AS [Month],
+    DATEPART(DAY, Fecha_GMT) AS [Day],
+    DATEPART(HOUR, Fecha_GMT) AS [Hour],
+    FORMAT(Fecha_GMT, 'yyyy-MM') AS Year_Month,
+    FORMAT(Fecha_GMT, 'yyyy-MM-dd') AS Year_Month_Day,
+    DATENAME(WEEKDAY, Fecha_GMT) AS [WeekDay]
+FROM [musica_julian].[dbo].[Brenoritvrezork];
+-- Actualizar RowNum
+WITH CTE AS (
+    SELECT *, ROW_NUMBER() OVER(ORDER BY Fecha_GMT ASC) AS NewRowNum
+    FROM Scrobblings_fix
+)
+UPDATE CTE
+SET RowNum = NewRowNum;
+COMMIT TRANSACTION;

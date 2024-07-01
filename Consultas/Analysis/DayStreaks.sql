@@ -24,5 +24,5 @@ SELECT
 	SUM(Listens)/COUNT(*) AS ListensPerDay
 FROM Agrupacion
 GROUP BY Bandera
-HAVING COUNT(*) > 1
+HAVING COUNT(*) > 6
 ORDER BY StreakDays DESC, Listens DESC;

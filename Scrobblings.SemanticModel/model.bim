@@ -12,7 +12,7 @@
       },
       {
         "name": "PBIDesktopVersion",
-        "value": "2.128.952.0 (24.04)"
+        "value": "2.130.930.0 (24.06)"
       },
       {
         "name": "PBI_ProTooling",
@@ -11139,13 +11139,27 @@
             "lineageTag": "6830306f-a4bb-4b95-80aa-4e72bed15e45",
             "summarizeBy": "none",
             "type": "calculated"
+          },
+          {
+            "name": "RowNum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "7157ed59-67f6-4bd6-92e9-a87b6e8eb1cd",
+            "sourceColumn": "RowNum",
+            "summarizeBy": "sum"
           }
         ],
         "lineageTag": "2410781f-5c6e-4416-8256-4ff5c95ec4fe",
         "measures": [
           {
             "name": "gmt-5",
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "MAX( Scrobblings_fix[Fecha] ) - 5 / 24"
@@ -11160,7 +11174,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "COUNT( Scrobblings_fix[Artist] )"
@@ -11181,7 +11195,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "DIVIDE( [Songs Count], DISTINCTCOUNT( Scrobblings_fix[Year_Month_Day] ) )"
@@ -11207,7 +11221,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "IF(",
@@ -11236,7 +11250,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "VAR _calculo = ",
@@ -11270,7 +11284,7 @@
           },
           {
             "name": "MAX Count",
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "CALCULATE(",
@@ -11298,7 +11312,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "DISTINCTCOUNT( Scrobblings_fix[Artist] )"
@@ -11348,7 +11362,7 @@
           },
           {
             "name": "Ranking",
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "RANKX( ALL( Scrobblings_fix[Artist] ), [Songs Count] )"
@@ -11382,7 +11396,7 @@
           },
           {
             "name": "Ranking WITHOUT Blanks",
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "IF( COUNT( Scrobblings_fix[Artist] ) = 0, BLANK(), [Ranking] )"
@@ -11406,7 +11420,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "CALCULATE(",
@@ -11424,7 +11438,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "CALCULATE(",
@@ -11437,7 +11451,7 @@
           },
           {
             "name": "PM Artists",
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "CALCULATE(",
@@ -11450,7 +11464,7 @@
           },
           {
             "name": "PY Artists",
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "CALCULATE(",
@@ -11468,7 +11482,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "VAR _calculo = IF(",
@@ -11496,7 +11510,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "DIVIDE( DISTINCTCOUNT( Scrobblings_fix[Song] ), [Artists Distinct] )"
@@ -11511,7 +11525,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "CALCULATE(",
@@ -11552,7 +11566,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "DATEDIFF( MAX( Scrobblings_fix[Fecha GMT-5] ), TODAY(), DAY )"
@@ -11567,7 +11581,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "DATEDIFF( MIN( Scrobblings_fix[Fecha GMT-5] ), TODAY(), DAY )",
@@ -11583,7 +11597,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "DIVIDE(",
@@ -11618,7 +11632,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "DIVIDE(",
@@ -11643,7 +11657,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "DATEDIFF( MIN( Scrobblings_fix[Fecha GMT-5] ), TODAY(), DAY )"
@@ -11676,7 +11690,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "DIVIDE(",
@@ -11703,7 +11717,7 @@
                 "property": "FormatString"
               }
             ],
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "VAR _LastDate =",
@@ -11724,7 +11738,7 @@
           },
           {
             "name": "Artists Last 30 Days",
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "VAR _LastDate =",
@@ -11745,7 +11759,7 @@
           },
           {
             "name": "Scrobblings_w_relation",
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "CALCULATE(",
@@ -11758,7 +11772,7 @@
           },
           {
             "name": "Days_Consecutive_Scrobblings",
-            "displayFolder": "Measures",
+            "displayFolder": "_Measures",
             "expression": [
               "",
               "VAR _RefDate =",
