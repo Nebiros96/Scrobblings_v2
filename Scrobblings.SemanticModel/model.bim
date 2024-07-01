@@ -12,7 +12,7 @@
       },
       {
         "name": "PBIDesktopVersion",
-        "value": "2.128.1380.0 (24.04)"
+        "value": "2.130.930.0 (24.06)"
       },
       {
         "name": "PBI_ProTooling",
@@ -11139,6 +11139,20 @@
             "lineageTag": "6830306f-a4bb-4b95-80aa-4e72bed15e45",
             "summarizeBy": "none",
             "type": "calculated"
+          },
+          {
+            "name": "RowNum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "7157ed59-67f6-4bd6-92e9-a87b6e8eb1cd",
+            "sourceColumn": "RowNum",
+            "summarizeBy": "sum"
           }
         ],
         "lineageTag": "2410781f-5c6e-4416-8256-4ff5c95ec4fe",
