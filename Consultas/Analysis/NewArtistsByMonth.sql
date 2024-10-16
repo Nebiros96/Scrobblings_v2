@@ -4,7 +4,7 @@ WITH ArtistsFirstMonth AS (
         Artist,
         MIN(Year_Month) AS FirstMonth
     FROM
-        Scrobblings_fix
+        Clean_LastfmData
     GROUP BY
         Artist
 ), -- Esta CTE Calcula los artistas distintos
@@ -13,7 +13,7 @@ ArtistsPerMonth AS (
         Year_Month,
         COUNT(DISTINCT Artist) AS TotalArtists
     FROM
-        Scrobblings_fix
+        Clean_LastfmData
     GROUP BY
         Year_Month
 )

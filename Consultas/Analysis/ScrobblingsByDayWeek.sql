@@ -5,13 +5,13 @@ SELECT
     t.TotalScobblings,
 	t.TotalScobblings/COUNT(DISTINCT s.Year_Month_Day) AS AVG_day
 FROM 
-    Scrobblings_fix s
+    Clean_LastfmData s
 INNER JOIN (
     SELECT
         WeekDay,
         COUNT(*) AS TotalScobblings
     FROM 
-        Scrobblings_fix
+        Clean_LastfmData
     GROUP BY
         WeekDay
 ) AS t ON s.WeekDay = t.WeekDay
@@ -26,7 +26,7 @@ WITH TotalScobblingsPerWeekDay AS (
         WeekDay,
         COUNT(*) AS TotalScobblings
     FROM 
-        Scrobblings_fix
+        Clean_LastfmData
     GROUP BY
         WeekDay
 ),
@@ -35,7 +35,7 @@ UniqueDaysPerWeekDay AS (
         WeekDay,
         COUNT(DISTINCT Year_Month_Day) AS UniqueDays
     FROM 
-        Scrobblings_fix
+        Clean_LastfmData
     GROUP BY
         WeekDay
 )

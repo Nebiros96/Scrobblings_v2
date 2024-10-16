@@ -4,7 +4,7 @@ WITH Agrupacion AS (
         CAST(Fecha_GMT AS DATE) AS Date_fix,
         COUNT(*) AS Scrobblings,
         LAG(CAST(Fecha_GMT AS DATE), 1) OVER(PARTITION BY Artist ORDER BY CAST(Fecha_GMT AS DATE)) AS LastDate
-    FROM Scrobblings_fix
+    FROM Clean_LastfmData
     GROUP BY Artist, CAST(Fecha_GMT AS DATE)
 ), Bandera AS ( -- Bandera se entiende como el grupo de días 
     SELECT

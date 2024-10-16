@@ -6,7 +6,7 @@ SELECT
 	Fecha_GMT,
 	LAG(Artist, 1) OVER(ORDER BY RowNum ASC) AS PreviousArtist,
     CASE WHEN LAG(Artist, 1) OVER(ORDER BY RowNum ASC) = Artist THEN 0 ELSE 1 END AS ArtistChange
-FROM Scrobblings_fix),
+FROM Clean_LastfmData),
 Bandera AS (
 SELECT
 	Artist,
@@ -34,7 +34,7 @@ WITH PrevArtist AS (
         Fecha_GMT,
         LAG(Artist, 1) OVER(ORDER BY RowNum ASC) AS PreviousArtist,
         CASE WHEN LAG(Artist, 1) OVER(ORDER BY RowNum ASC) = Artist THEN 0 ELSE 1 END AS ArtistChange
-    FROM Scrobblings_fix
+    FROM Clean_LastfmData
 ),
 Bandera AS (
     SELECT

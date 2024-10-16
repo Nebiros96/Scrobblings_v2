@@ -6,7 +6,7 @@ WITH Monthly_Records AS
 		Artist, 
 		COUNT(Artist) AS Reps
 	FROM 
-		Scrobblings_fix 
+		Clean_LastfmData 
 	GROUP BY 
 		Artist, 
 		Year_Month
@@ -35,4 +35,3 @@ GROUP BY
 SELECT * FROM SubNested_cte
 ORDER BY 
 	Times_into_top5 DESC
-

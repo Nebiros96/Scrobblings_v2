@@ -5,7 +5,7 @@ SELECT
 	COUNT(DISTINCT Song) AS Songs,
 	COUNT(*)/COUNT(DISTINCT Song) AS ScrobblingsPerSong
 FROM
-	Scrobblings_fix
+	Clean_LastfmData
 GROUP BY
 	Artist
 ORDER BY

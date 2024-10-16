@@ -7,7 +7,7 @@ WITH ScrobblingsWithDaysBetween AS (
             ORDER BY CAST(Fecha_GMT AS DATE)) AS EndDate,
         DATEDIFF(DAY, LAG(CAST(Fecha_GMT AS DATE), 1) OVER(PARTITION BY Artist
             ORDER BY CAST(Fecha_GMT AS DATE)), CAST(Fecha_GMT AS DATE)) AS DaysBetween
-    FROM Scrobblings_fix
+    FROM Clean_LastfmData
 	GROUP BY
 	Artist,
 	Fecha_GMT

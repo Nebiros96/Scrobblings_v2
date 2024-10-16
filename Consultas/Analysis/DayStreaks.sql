@@ -4,7 +4,7 @@ WITH LagColumn AS (
         Year_Month_Day,
         COUNT(*) AS Listens,
         LAG(Year_Month_Day, 1) OVER (ORDER BY Year_Month_Day ASC) AS PreviousDay 
-    FROM Scrobblings_fix
+    FROM Clean_LastfmData
     GROUP BY Year_Month_Day
 ),
 Agrupacion AS (

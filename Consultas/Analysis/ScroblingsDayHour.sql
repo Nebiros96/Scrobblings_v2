@@ -4,7 +4,7 @@ SELECT
 	WeekDay,
 	COUNT(*) AS Reproducciones,
 	ROUND(CAST(COUNT(*)AS FLOAT)/CAST(COUNT(DISTINCT(Year_Month_Day))AS DECIMAL(16,2)),2) AS rep_per_day
-FROM Scrobblings_fix
+FROM Clean_LastfmData
 GROUP BY 
 	WeekDay, Hour
 ORDER BY 

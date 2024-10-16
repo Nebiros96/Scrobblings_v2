@@ -5,7 +5,7 @@ WITH Agrupacion AS (
         CAST(Fecha_GMT AS DATE) AS Date_fix,
         COUNT(*) AS Scrobblings,
         LAG(CAST(Fecha_GMT AS DATE), 1) OVER(PARTITION BY Artist ORDER BY CAST(Fecha_GMT AS DATE)) AS LastDate
-    FROM Scrobblings_fix
+    FROM Clean_LastfmData
     GROUP BY Artist, CAST(Fecha_GMT AS DATE)
 ), Bandera AS ( -- Bandera se entiende como el grupo de días 
     SELECT
@@ -35,7 +35,7 @@ WITH Agrupacion AS (
         CAST(Fecha_GMT AS DATE) AS Date_fix,
         COUNT(*) AS Listens,
         LAG(CAST(Fecha_GMT AS DATE), 1) OVER(PARTITION BY Artist ORDER BY CAST(Fecha_GMT AS DATE)) AS LastDate
-    FROM Scrobblings_fix
+    FROM Clean_LastfmData
     GROUP BY Artist, CAST(Fecha_GMT AS DATE)
 ), Bandera AS (
     SELECT
@@ -64,9 +64,3 @@ SELECT
 FROM Bandera AS B
 INNER JOIN MaxDias AS M ON B.Artist = M.Artist AND B.Bandera = M.Bandera
 ORDER BY B.Date_fix ASC;
-
-
-
-
-
-

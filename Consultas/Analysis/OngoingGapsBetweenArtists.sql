@@ -10,7 +10,7 @@ SELECT
 	ROUND(CAST(DATEDIFF(DAY, MAX(Fecha_GMT), GETDATE()) AS FLOAT) / 365.25, 1) AS Years,
 	COUNT(*) AS Scrobblings
 FROM
-	Scrobblings_fix
+	Clean_LastfmData
 GROUP BY
 	Artist
 ORDER BY

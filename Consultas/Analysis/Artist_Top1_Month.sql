@@ -3,7 +3,7 @@ WITH TotalCounts AS (
     SELECT 
         Year_Month, 
         COUNT(*) AS TotalScrobblings
-    FROM Scrobblings_fix 
+    FROM Clean_LastfmData 
     GROUP BY Year_Month
 ),
 RankedArtists AS (
@@ -12,7 +12,7 @@ RankedArtists AS (
         Artist, 
         COUNT(*) AS Scrobblings,
         ROW_NUMBER() OVER (PARTITION BY Year_Month ORDER BY COUNT(*) DESC) AS RowNum
-    FROM Scrobblings_fix
+    FROM Clean_LastfmData
     GROUP BY Year_Month, Artist
 )
 SELECT 
@@ -25,5 +25,3 @@ FROM RankedArtists AS R
 JOIN TotalCounts AS T ON R.Year_Month = T.Year_Month
 WHERE R.RowNum = 1
 ORDER BY Percentage_total DESC;
-
-

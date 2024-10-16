@@ -4,7 +4,7 @@ SELECT
 	COUNT(*) AS Scrobblings,
 	COUNT(DISTINCT Song) AS Songs
 FROM
-	Scrobblings_fix
+	Clean_LastfmData
 GROUP BY
 	Artist
 HAVING COUNT(DISTINCT Song) = 1
