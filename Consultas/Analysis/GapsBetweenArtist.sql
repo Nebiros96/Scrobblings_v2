@@ -1,4 +1,7 @@
--- Largest time passed between two scrobbles of the same artist
+/* 
+Mayor período de tiempo transcurrido entre dos scrobblings
+de un mismo artista
+*/
 WITH ScrobblingsWithDaysBetween AS (
     SELECT
         Artist,
@@ -11,7 +14,7 @@ WITH ScrobblingsWithDaysBetween AS (
 	GROUP BY
 	Artist,
 	Fecha_GMT
-	--HAVING COUNT(*) > 1
+	-- HAVING COUNT(*) > 1
 ),
 RankedScrobblings AS (
     SELECT
@@ -29,5 +32,6 @@ SELECT
     DaysBetween,
 	ROUND(CAST(DaysBetween/365.25 AS FLOAT),1) AS YearsBetween
 FROM RankedScrobblings
-WHERE RowNum = 1 AND DaysBetween IS NOT NULL
+WHERE RowNum = 1 AND DaysBetween IS NOT NULL 
+	AND DaysBetween > 0
 ORDER BY DaysBetween DESC;

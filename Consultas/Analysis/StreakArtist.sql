@@ -1,4 +1,6 @@
--- Racha por artista (repitiendo)
+/* Cantidad de canciones consecutivas de un solo artista 
+PD: Se repite el artista
+*/
 WITH PrevArtist AS (
 SELECT
 	Artist,
@@ -26,7 +28,9 @@ GROUP BY Artist, GroupID
 HAVING COUNT(*) >= 5
 ORDER BY Streak DESC, FinishStreak ASC;
 
--- Consulta SIN repetir Artistas
+/* Cantidad de canciones consecutivas de un solo artista 
+PD: Sin repetir el artista
+*/
 WITH PrevArtist AS (
     SELECT
         Artist,

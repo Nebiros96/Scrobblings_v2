@@ -1,3 +1,6 @@
+/*
+Racha de días consecutivos escuchando un solo artista (Top 1)
+*/
 WITH Agrupacion AS (
     SELECT 
         Artist, 
@@ -18,7 +21,7 @@ WITH Agrupacion AS (
         MIN(Date_fix) AS FechaInicio,
         MAX(Date_fix) AS FechaFin,
         COUNT(*) AS CantidadDias,
-        SUM(Scrobblings) AS Listens,
+        SUM(Scrobblings) AS Scrobblings,
         ROW_NUMBER() OVER (PARTITION BY Artist ORDER BY COUNT(*) DESC, SUM(Scrobblings) DESC) AS RowNum
     FROM Bandera
     GROUP BY Artist, Bandera
@@ -29,7 +32,7 @@ SELECT
     FechaInicio,
     FechaFin,
     CantidadDias,
-    Listens
+    Scrobblings
 FROM Rachas
 WHERE RowNum = 1
-ORDER BY CantidadDias DESC, Listens DESC;
+ORDER BY CantidadDias DESC, Scrobblings DESC;

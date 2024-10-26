@@ -1,4 +1,6 @@
--- Avg scrobbles per track
+/*
+Promedio de Scrobblings por canción por artista
+*/
 SELECT
 	Artist,
 	COUNT(*) AS Scrobblings,
@@ -8,5 +10,7 @@ FROM
 	Clean_LastfmData
 GROUP BY
 	Artist
+HAVING
+	COUNT(*)/COUNT(DISTINCT Song) >= 10
 ORDER BY
 	ScrobblingsPerSong DESC;

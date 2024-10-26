@@ -1,26 +1,4 @@
--- Scrobblings por día de la semana (CON join)
-SELECT
-    s.WeekDay,
-    COUNT(DISTINCT s.Year_Month_Day) AS UniqueDays,
-    t.TotalScobblings,
-	t.TotalScobblings/COUNT(DISTINCT s.Year_Month_Day) AS AVG_day
-FROM 
-    Clean_LastfmData s
-INNER JOIN (
-    SELECT
-        WeekDay,
-        COUNT(*) AS TotalScobblings
-    FROM 
-        Clean_LastfmData
-    GROUP BY
-        WeekDay
-) AS t ON s.WeekDay = t.WeekDay
-GROUP BY
-    s.WeekDay, t.TotalScobblings
-ORDER BY
-    UniqueDays DESC;
-
--- lo mismo pero con CTE
+-- Scrobblings por día de la semana 
 WITH TotalScobblingsPerWeekDay AS (
     SELECT
         WeekDay,

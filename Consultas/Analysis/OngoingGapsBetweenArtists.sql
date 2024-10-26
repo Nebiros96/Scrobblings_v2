@@ -1,4 +1,3 @@
--- Ongoing gaps between artists
 /*
 última fecha menos la última reproducción
 */

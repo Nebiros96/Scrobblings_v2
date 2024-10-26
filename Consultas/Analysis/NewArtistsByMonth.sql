@@ -1,4 +1,4 @@
--- New artists in a single month
+-- Artistas nuevos en un mes
 WITH ArtistsFirstMonth AS (
     SELECT
         Artist,

@@ -1,4 +1,7 @@
---- La que sirve (OPTIMIZADA)
+/*
+Racha de días consecutivas escuchando un mismo artista
+PD: Se repite el artista en casos de encontrar más de una racha
+*/
 WITH Agrupacion AS (
     SELECT 
         Artist, 
@@ -21,19 +24,19 @@ SELECT
     MIN(Date_fix) AS FechaInicio,
     MAX(Date_fix) AS FechaFin,
     COUNT(*) AS CantidadDias,
-	SUM(Scrobblings) AS Listens
+	SUM(Scrobblings) AS Scrobblings
 FROM Bandera
 -- WHERE Artist = 'Grimes' -- Para ver todas las rachas de un artista en específico # LINEA COMENTADA para ver todo
 GROUP BY Artist, Bandera
 HAVING COUNT(*) > 1
-ORDER BY CantidadDias DESC, Listens DESC;
+ORDER BY CantidadDias DESC, Scrobblings DESC;
 
 -- con artista específico
 WITH Agrupacion AS (
     SELECT 
         Artist, 
         CAST(Fecha_GMT AS DATE) AS Date_fix,
-        COUNT(*) AS Listens,
+        COUNT(*) AS Scrobblings,
         LAG(CAST(Fecha_GMT AS DATE), 1) OVER(PARTITION BY Artist ORDER BY CAST(Fecha_GMT AS DATE)) AS LastDate
     FROM Clean_LastfmData
     GROUP BY Artist, CAST(Fecha_GMT AS DATE)
@@ -50,7 +53,7 @@ WITH Agrupacion AS (
         MIN(Date_fix) AS FechaInicio,
         MAX(Date_fix) AS FechaFin,
         COUNT(*) AS CantidadDias,
-		SUM(Listens) AS Listens
+		SUM(Scrobblings) AS Listens
     FROM Bandera
     WHERE Artist = N'Madonna' --Artista a seleccionar
     GROUP BY Artist, Bandera
@@ -60,7 +63,7 @@ SELECT
 	ROW_NUMBER() OVER(ORDER BY B.Date_fix ASC) AS DayN,
     B.Artist,
     B.Date_fix AS Fecha,
-    B.Listens
+    B.Scrobblings
 FROM Bandera AS B
 INNER JOIN MaxDias AS M ON B.Artist = M.Artist AND B.Bandera = M.Bandera
 ORDER BY B.Date_fix ASC;

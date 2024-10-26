@@ -1,4 +1,10 @@
--- Consulta para traer artistas con más apariciones en un Top N y datos adicionales 
+/*
+Best_rank: Mejor posición en Scrobblings del artista en un mes
+Times_into_top5: Cantidad de veces en el top 5 por mes
+Plays_in_top5: Scrobblings dentro de las veces que estuvo en el top 5
+Last_Month: Último mes que hizo parte de un top 5
+Plays_record: Mayor cantidad de Scrobblings en un solo mes
+*/
 WITH Monthly_Records AS 
 	(
 	SELECT 

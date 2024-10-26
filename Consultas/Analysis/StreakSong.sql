@@ -1,4 +1,6 @@
--- Racha por artista (repitiendo)
+/* Cantidad de Scrobblings consecutivas de una misma canción
+PD: Se repite la canción
+*/
 WITH PrevArtist AS (
 SELECT
 	Artist,
